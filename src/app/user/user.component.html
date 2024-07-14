@@ -17,12 +17,32 @@
 </div> -->
 
 <!-- Signal Variante = Signal Binding -->
-<div>
+<!-- <div>
   <button [class.active]="selected" (click)="onSelectUser()">
     <img
       [src]="imagePathV2()"
       [alt]="selectedUserV2().name"
     />
     <span>{{ selectedUserV2().name }}</span>
+  </button>
+</div> -->
+
+<!-- <div>
+  <button (click)="onSelectUser()">
+    <img
+      [src]="imagePath()"
+      [alt]="name()"
+    />
+    <span>{{ name() }}</span>
+  </button>
+</div> -->
+
+<div>
+  <button [class.active]="selected" (click)="onSelectUser()">
+    <img
+      [src]="imagePath"
+      [alt]="user.name"
+    />
+    <span>{{ user.name }}</span>
   </button>
 </div>
