@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { Task } from './task/task.model';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -22,39 +23,17 @@ export class TasksComponent {
     dueDate: new Date().toISOString(),
   };
 
-  tasks: Task[] = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Title',
-      summary: 'learn all the basic',
-      dueDate: new Date().toISOString(),
-    },
-    {
-      id: 't2',
-      userId: 'u2',
-      title: 'Title 2',
-      summary: 'learn all the basic',
-      dueDate: new Date().toISOString(),
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Title 3',
-      summary: 'learn all the basic',
-      dueDate: new Date().toISOString(),
-    },
-  ];
+  constructor(private tasksService: TasksService) {}
 
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.userId);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onStartAddTask() {
     this.isAddingTask = true;
   }
 
-  onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter(task => task.id !== id);
+  onCloseAddTask() {
+    this.isAddingTask = false;
   }
 }

@@ -61,12 +61,10 @@ export class UserComponent {
 
   get imagePath() {
     const path = 'assets/users/' + this.user.avatar;
-    console.log('path', path);
     return path;
   }
 
   onSelectUser() {
-    console.log('this.user.id', this.user.id);
     this.select.emit(this.user.id);
   }
 }

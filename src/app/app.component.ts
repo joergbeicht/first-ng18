@@ -20,13 +20,10 @@ export class AppComponent {
 
   get selectedUser() {
     const user = this.users.find(user => user.id == this.selectedUserId);
-    console.log('user', user);
     return user;
   }
 
   onSelectUser(id: string) {
-    // this.selectedUserId = id;
-    console.log('user id', id);
     this.selectedUserId = id;
   }
 }
